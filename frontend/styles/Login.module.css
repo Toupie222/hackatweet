@@ -31,6 +31,17 @@
     font-size: 25px;
     width: 13em;
     height: 3em;
+    
+    cursor: pointer;
+}
+
+.signup:hover {
+    background-color: #268cec;
+    transition: 0.5s;
+}
+
+.signup:active {
+    background-color: #0f3e6b;
 }
 
 .msg {
@@ -48,6 +59,17 @@
     font-size: 25px;
     width: 13em;
     height: 3em;
+
+    cursor: pointer;
+}
+
+.signin:hover {
+    background-color: #242a31;
+    transition: 0.5s;
+}
+
+.signin:active {
+    background-color: #737477;
 }
 
 .logo {
