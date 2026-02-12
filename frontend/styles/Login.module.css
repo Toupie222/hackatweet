@@ -1,0 +1,31 @@
+.body {
+    display: flex;
+}
+
+.imgLogin {
+    height: 100vh;
+    width: 35vw;
+}
+
+.left_side {
+    margin-top: 4vh;
+    margin-left: 4vh;
+    color: white;
+}
+
+.titre {
+    font-size: 10vh;
+}
+
+.sous_titre {
+    font-size: 3em;
+}
+
+.msg {
+    font-size: 25px;
+    margin-top: 3em
+}
+
+.logo {
+    height: 8vh;
+}
