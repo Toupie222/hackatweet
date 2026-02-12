@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'MontHeavy';
+  src: url('/fonts/mont-heavy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'MontHeavy', Verdana;
+  background-color: #151f2b;
+}
+
+* {
+  box-sizing: border-box;
+}
