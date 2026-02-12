@@ -75,3 +75,71 @@
 .logo {
     height: 8vh;
 }
+
+.container {
+    background-color: #151f2b;
+    border-radius: 17px;
+    padding-bottom: 6em;
+    box-shadow: 5px 5px 5px #0d151f;
+}
+
+.bouton_popup {
+    border: none;
+    background-color: #151f2b;
+    cursor: pointer;
+    font-size: 2em;
+    color: white;
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text_popup {
+    color: white;
+    font-size: 2em;
+    margin-left: 7em;
+    margin-right: 7em;
+}
+
+.input {
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    padding-left: 10px;
+
+    background-color: #151f2b;
+    border: 1px solid #76828f;
+    color: white;
+    border-radius: 5px;
+    font-size: 25px;
+
+    height: 3em;
+    width: 12em;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.signup_popup {
+    margin-top: 1.5vh;
+    border: none;
+    border-radius: 40px;
+    color: black;
+    background-color: white;
+    font-size: 25px;
+    width: 12em;
+    height: 2em;
+    cursor: pointer;
+}
+
+.signup_popup:hover {
+    background-color: rgb(218, 215, 215);
+    transition: 0.5s;
+}
+
+.signup_popup:active {
+    background-color: rgb(60, 60, 60);
+}
