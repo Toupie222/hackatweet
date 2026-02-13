@@ -47,6 +47,16 @@
     color: white;
     width: 5.5vw;
     height: 3vh;
+    cursor: pointer;
+}
+
+.logout:hover {
+    background-color: #292f38;
+    transition: 0.5s;
+}
+
+.logout:active {
+    background-color: #6b6e72;
 }
 
 .center_side {
@@ -100,6 +110,16 @@
     font-weight: bold;
     width: 8em;
     margin-left: 2em;
+    cursor: pointer;
+}
+
+.bouton_tweet:hover {
+    background-color: #28659a;
+    transition: 0.5s;
+}
+
+.bouton_tweet:active {
+    background-color: #1a344a;
 }
 
 .compteur {

@@ -17,6 +17,12 @@
     padding-left: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
+    cursor: pointer;
+}
+
+.trends:hover {
+    background-color: #2a3036;
+    border-radius: 12px;
 }
 
 .trendName {

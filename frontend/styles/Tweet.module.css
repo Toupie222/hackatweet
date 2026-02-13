@@ -1,0 +1,53 @@
+.tweet {
+    padding-left: 2em;
+    padding-top: 2em;
+    border-bottom: 2px solid #343e48;
+}
+
+.identifiant {
+    display: flex;
+    align-items: center;
+}
+
+.pdp {
+    height: 8vh;
+}
+
+.userinfo {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+    font-size: 17px;
+    color: #758190;
+}
+
+.username {
+    font-weight: bolder;
+    color: white;
+    font-size: 19px;
+
+}
+
+.tweet_content {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+    font-size: 17px;
+    padding-left: 1em;
+    margin-bottom: 0.5vh;
+    margin-top: 2em;
+}
+
+.hashtag {
+    font-weight: bold;
+    color: #278cf2;
+}
+
+.like {
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+}
+
+.nbLike {
+    padding-top: 2px;
+    padding-left: 5px;
+}

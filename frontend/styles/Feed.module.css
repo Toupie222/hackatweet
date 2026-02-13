@@ -1,0 +1,5 @@
+.feed {
+    max-height: 72vh;
+    overflow-y: scroll;
+    scrollbar-color: #3b4146 #151f2b;
+}
