@@ -21,12 +21,12 @@ function Tweet(props) {
         <div className={styles.tweet}>
             <div className={styles.identifiant}>
                 <img src="pdp.png" alt="Photo de profil" className={styles.pdp}/>
-                <p className={styles.userinfo}><span className={styles.username}>{props.username}</span> {props.mail} • {props.date} hours</p>
+                <p className={styles.userinfo}><span className={styles.username}>{props.username}</span> @{props.mail} • {props.date}</p>
             </div>
             <p className={styles.tweet_content}>{message}</p>
             <div className={styles.like}>
                 <FontAwesomeIcon icon={faHeart} />
-                <p className={styles.nbLike}>0</p>
+                <p className={styles.nbLike}>{props.nbLike}</p>
             </div>
         </div>
     );

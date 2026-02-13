@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const User = require('../models/users');
 
 require('../models/connection');
 
@@ -23,9 +24,33 @@ router.post('/createTweet', (req,res) => {
     });
 })
 
-router.get('/getTweets', (req,res) => {
-    Tweet.find().then(data => res.json({tweets:data.sort((a,b) => b.date - a.date)})); //Sort du plus recent au plus vieux
-})
+router.get('/getTweets', async (req, res) => {
+    const tweets = await Tweet.aggregate([
+        { $sort: { date: -1 } },
+        {
+        $lookup: {
+            from: 'users',
+            localField: 'user',
+            foreignField: 'token',
+            as: 'userInfo',
+        },
+        },
+        { $unwind: '$userInfo' },
+        {
+        $project: {
+            _id: 0,
+            content: 1,
+            nbLike: 1,
+            date: 1,
+            firstname: '$userInfo.firstname',
+            username: '$userInfo.username',
+        },
+        },
+    ]);
+
+    res.json({ result: true, tweets });
+});
+
 
 router.get('/getTrending', (req,res) => {
     if (!checkBody(req.body, ['trend'])) {

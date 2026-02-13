@@ -10,7 +10,7 @@ function Home() {
     fetch("http://localhost:3000/tweets/createTweet", {
       method: "POST",
       body: new URLSearchParams({
-        token: "GVsheSXGx47eSFw3DHrRq36gDFvM6V",
+        token: "GVsheSXGx47eSFw3DHrRq36gDFvM6WUx",
         content: word,
       })
     })
