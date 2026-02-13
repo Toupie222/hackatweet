@@ -5,6 +5,24 @@ import { useState } from 'react';
 
 function Home() {
   const [word, setWord] = useState('');
+
+  const CreateTweet = () => {
+    fetch("http://localhost:3000/tweets/createTweet", {
+      method: "POST",
+      body: new URLSearchParams({
+        token: "GVsheSXGx47eSFw3DHrRq36gDFvM6V",
+        content: word,
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.result)
+      {
+        setWord("")
+      }
+    });
+  }
+
   return (
     <div className={styles.body}>
       <div className={styles.left_side}>
@@ -38,7 +56,7 @@ function Home() {
             />
             <div className={styles.bouton_et_text_home}>
               <p className={styles.compteur}>{word.length}/280</p>
-              <button className={styles.bouton_tweet}>Tweet</button>
+              <button onClick={CreateTweet} className={styles.bouton_tweet}>Tweet</button>
             </div>
           </div>
         </div>
