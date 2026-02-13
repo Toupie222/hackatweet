@@ -3,14 +3,18 @@ import Trends from './Trends';
 import Feed from './Feed';
 import { useState,useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { addTweets } from '../reducers/tweets';
+import { addTweets,setTweets } from '../reducers/tweets';
 
 function Home() {
   const [word, setWord] = useState('');
-  const user = useSelector((state) => state.friends.value);
+  const user = useSelector((state) => state.users.value);
   const dispatch = useDispatch()
 
-  
+  useEffect(() => {
+    fetch("http://localhost:3000/tweets/getTweets")
+            .then(res => res.json())
+            .then(data => {console.log(data); dispatch(setTweets(data.tweets))});
+  }, []);
 
   const CreateTweet = () => {
 
@@ -23,7 +27,7 @@ function Home() {
 
     fetch("http://localhost:3000/tweets/createTweet", {
       method: "POST",
-      body: new URLSearchParams({newTweet})
+      body: new URLSearchParams(newTweet)
     })
     .then(response => response.json())
     .then(data => {

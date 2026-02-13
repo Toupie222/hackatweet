@@ -14,6 +14,7 @@ export const tweetsSlice = createSlice({
     },
     addTweets: (state, action) => {
       state.value.push(action.payload)
+      state.value = state.value.sort((a,b) => b.date - a.date)
     },
     removeTweet: (state, action) => {
       state.value = state.value.filter((data) => !data.content.toLowerCase().includes(action.payload.toLowerCase()))
@@ -21,5 +22,5 @@ export const tweetsSlice = createSlice({
  },
 });
 
-export const { addTweets,removeTweet } = tweetsSlice.actions;
+export const { addTweets,removeTweet,setTweets } = tweetsSlice.actions;
 export default tweetsSlice.reducer;

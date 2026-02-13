@@ -1,16 +1,11 @@
 import styles from "../styles/Feed.module.css"
 import Tweet from "./Tweet"
 import { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 
 
 function Feed() {
-    const [tweets, setTweets] = useState([]);
-
-    useEffect(() => {
-        fetch("http://localhost:3000/tweets/getTweets")
-            .then(res => res.json())
-            .then(data => {console.log(data); setTweets(data.tweets)});
-        }, []);
+    let tweetsList = useSelector((state) => state.tweets.value)
 
     function getTimeDifference(dateString) {
         const now = new Date();
@@ -39,7 +34,7 @@ function Feed() {
 
     return (
         <div className={styles.feed}>
-            {tweets.map((tweet) => (
+            {tweetsList.map((tweet) => (
                 <Tweet
                     firstname={tweet.firstname}
                     username={tweet.username}

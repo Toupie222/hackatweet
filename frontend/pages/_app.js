@@ -4,9 +4,10 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import users from '../reducers/users';
+import tweets from '../reducers/tweets';
 
 const store = configureStore({
- reducer: { users },
+ reducer: { users, tweets },
 });
 
 function App({ Component, pageProps }) {
