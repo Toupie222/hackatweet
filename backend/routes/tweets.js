@@ -24,7 +24,7 @@ router.post('/createTweet', (req,res) => {
 })
 
 router.get('/getTweets', (req,res) => {
-    Tweet.find().then(data => res.json({tweets:data}));
+    Tweet.find().then(data => res.json({tweets:data.sort((a,b) => b.date - a.date)})); //Sort du plus recent au plus vieux
 })
 
 router.get('/getTrending', (req,res) => {
