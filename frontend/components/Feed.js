@@ -7,10 +7,10 @@ function Feed() {
     const [tweets, setTweets] = useState([]);
 
     useEffect(() => {
-    fetch("http://localhost:3000/tweets/getTweets")
-        .then(res => res.json())
-        .then(data => {console.log(data); setTweets(data.tweets)});
-    });
+        fetch("http://localhost:3000/tweets/getTweets")
+            .then(res => res.json())
+            .then(data => {console.log(data); setTweets(data.tweets)});
+        }, []);
 
     function getTimeDifference(dateString) {
         const now = new Date();
@@ -33,9 +33,9 @@ function Feed() {
         const diffInHours = Math.floor(diffInMinutes / 60);
 
         return `${diffInHours} hours`;
-}
+    }
 
-
+    
 
     return (
         <div className={styles.feed}>

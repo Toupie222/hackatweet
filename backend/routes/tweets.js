@@ -71,4 +71,17 @@ router.delete('/deleteTweet', (req,res) => {
     Tweet.deleteOne({user:req.body.token,content:req.body.content}).then(data => res.json(data))
 })
 
+router.put('/ajoutLike', (req, res) => {
+    if (!checkBody(req.body, ['content', 'date', 'nbLike'])) {
+        res.json({ result: false, error: 'Missing or empty data' });
+        return;
+    }
+
+    Tweet.updateOne(
+        { date: req.body.username, content: req.body.content, nbLike: req.body.nbLike },
+        { nbLike: nbLike + 1}
+    )
+})
+
+
 module.exports = router;
