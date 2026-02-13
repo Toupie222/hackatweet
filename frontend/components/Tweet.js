@@ -1,9 +1,25 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { useState } from "react";
 
 import styles from "../styles/Tweet.module.css"
 
 function Tweet(props) {
+    const [liked, setLiked] = useState(false);
+    const [nbOfLike, setNbOfLike] = useState(props.nbLike)
+
+    const like = () => {
+        setLiked(!liked)
+        if (!liked)
+        {
+            setNbOfLike(nbOfLike + 1);
+        }
+        else
+        {
+            setNbOfLike(nbOfLike - 1)
+        }
+    }
+
     const pattern = /(#[a-zA-Z0-9_]+)/g;
 
     const message = props.content.split(pattern).map((part) => {
@@ -25,8 +41,16 @@ function Tweet(props) {
             </div>
             <p className={styles.tweet_content}>{message}</p>
             <div className={styles.like}>
-                <FontAwesomeIcon icon={faHeart} />
-                <p className={styles.nbLike}>{props.nbLike}</p>
+                <FontAwesomeIcon
+                    icon={faHeart}
+                    style={{
+                        color: liked ? "red" : "white",
+                        cursor: "pointer",
+                        fontSize: "24px"
+                    }}
+                    onClick={like}
+                />
+                <p className={styles.nbLike}>{nbOfLike}</p>
             </div>
         </div>
     );
