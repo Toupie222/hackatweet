@@ -52,4 +52,21 @@ router.post('/signin', (req, res) => {
   });
 });
 
+router.get('/getUserInfoByToken', (req, res) => {
+  const { token } = req.query;
+
+  if (!token) {
+    return res.json({ result: false, error: "Token manquant" });
+  }
+
+  User.findOne({ token })
+    .then(user => {
+      if (!user) {
+        return res.json({ result: false, error: "Utilisateur non trouvé" });
+      }
+
+      res.json({ firstname: user.firstname, username: user.username });
+    })
+});
+
 module.exports = router;
