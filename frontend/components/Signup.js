@@ -3,7 +3,11 @@ import styles from "../styles/Signup.module.css";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'
 
+import { useDispatch } from 'react-redux';
+import { addUserInfo } from '../reducers/users';
+
 function Signup() {
+    const dispatch = useDispatch();
 
     const router = useRouter()
     const [signUpFirstName, setSignUpFirstName] = useState('');
@@ -19,12 +23,11 @@ function Signup() {
         }).then(response => response.json())
             .then(data => {
                 if (data.result) {
-                    /*
-                    dispatch(login({username:signUpUsername, token:data.token}));
-                    setSignInUsername('');
-                    setSignInPassword('');
-                    */
-                   router.push('/acceuil')
+                    dispatch(addUserInfo({token:data.token}))
+                    setSignUpUsername('');
+                    setSignUpPassword('');
+
+                    router.push('/acceuil')
                 }
             });
     }

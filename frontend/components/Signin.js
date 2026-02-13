@@ -3,7 +3,11 @@ import styles from "../styles/Signin.module.css";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'
 
+import { useDispatch } from 'react-redux';
+import { addUserInfo } from '../reducers/users';
+
 function Signin() {
+    const dispatch = useDispatch();
 
     const router = useRouter()
     const [signInUsername, setSignInUsername] = useState('');
@@ -18,11 +22,10 @@ function Signin() {
         }).then(response => response.json())
             .then(data => {
                 if (data.result) {
-                    /*
-                    dispatch(login({username:signInUsername, token:data.token}));
+                    dispatch(addUserInfo({token:data.token}))
                     setSignInUsername('');
                     setSignInPassword('');
-                    */
+                    
                    router.push('/acceuil')
                 }
             });
