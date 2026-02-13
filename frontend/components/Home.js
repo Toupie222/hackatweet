@@ -1,23 +1,35 @@
 import styles from '../styles/Home.module.css';
 import Trends from './Trends';
 import Feed from './Feed';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import { useSelector,useDispatch } from 'react-redux';
+import { addTweets } from '../reducers/tweets';
 
 function Home() {
   const [word, setWord] = useState('');
+  const user = useSelector((state) => state.friends.value);
+  const dispatch = useDispatch()
+
+  
 
   const CreateTweet = () => {
+
+    const newTweet = {
+      token : user.token,
+      content: word,
+      nbLike: 0,
+      date: new Date(),
+    }
+
     fetch("http://localhost:3000/tweets/createTweet", {
       method: "POST",
-      body: new URLSearchParams({
-        token: "GVsheSXGx47eSFw3DHrRq36gDFvM6WUx",
-        content: word,
-      })
+      body: new URLSearchParams({newTweet})
     })
     .then(response => response.json())
     .then(data => {
       if (data.result)
       {
+        dispatch(addTweets(newTweet));
         setWord("")
       }
     });
